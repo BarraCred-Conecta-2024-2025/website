@@ -81,7 +81,8 @@ var e = {
         e.lightBox(),
         e.typeText(),
         e.enableIsotope(),
-        e.waveCanvas()
+        e.waveCanvas(),
+        e.scrollSpy()
     },
     isVariableDefined: function (el) {
         return typeof !!el && (el) != 'undefined' && el != null;
@@ -601,5 +602,53 @@ var e = {
     },
     // END: wave
     
+
+    // Adicione esta função ao seu objeto 'e'
+scrollSpy: function() {
+    const sections = document.querySelectorAll('section[id]'); // Seleciona todas as seções com ID
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link'); // Seleciona todos os links da navbar
+    
+    if(sections.length && navLinks.length) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // 50% do elemento precisa estar visível
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    // Remove a classe 'active' de todos os links
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Encontra o link correspondente e adiciona a classe 'active'
+                    const id = entry.target.getAttribute('id');
+                    const correspondingLink = document.querySelector(`.navbar-nav .nav-link[href="#${id}"]`);
+                    
+                    if(correspondingLink) {
+                        correspondingLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observa todas as seções
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Para dispositivos móveis com navbar collapse
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+    }
+},
 };
 e.init();

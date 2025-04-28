@@ -20634,7 +20634,7 @@ footer .widget {
   height: 32px;
   width: 32px;
   line-height: 32px;
-  font-size: 16px;
+  font-size: 24px;
   text-align: center;
   border-radius: 3px;
   border: 0;
@@ -21560,4 +21560,9 @@ footer .widget {
 
 .fade-bg.fadeing .fade-overlay {
   background-color: rgba(0, 0, 0, 0.7); /* escurece ao trocar */
+}
+
+.scrolled {
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.5);
 }
