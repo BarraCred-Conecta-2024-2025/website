@@ -1,8 +1,8 @@
     // "assets/images/fotos/bg1.jpeg",
 const images = [
-    "assets/images/fotos/bg2.jpg",
-    "assets/images/fotos/bg3.jpg",
-    "assets/images/fotos/bg4.jpg",
+    "assets/images/bg/banner1.jpg",
+    "assets/images/bg/banner2.jpg",
+    "assets/images/bg/banner3.jpg",
 ];
 
 let current = 0;
