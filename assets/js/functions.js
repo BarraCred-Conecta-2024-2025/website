@@ -68,21 +68,21 @@ Table Of Content
 var e = {
     init: function () {
         e.preLoader(),
-        e.megaMenu(),
-        e.stickyHeader(),
-        e.tinySlider(),
-        e.parallaxBG(),
-        e.aosFunc(),
-        e.stickyBar(),
-        e.formValidation(),
-        e.toolTipFunc(),
-        e.popOverFunc(),
-        e.backTotop(),
-        e.lightBox(),
-        e.typeText(),
-        e.enableIsotope(),
-        e.waveCanvas(),
-        e.scrollSpy()
+            e.megaMenu(),
+            e.stickyHeader(),
+            e.tinySlider(),
+            e.parallaxBG(),
+            e.aosFunc(),
+            e.stickyBar(),
+            e.formValidation(),
+            e.toolTipFunc(),
+            e.popOverFunc(),
+            e.backTotop(),
+            e.lightBox(),
+            e.typeText(),
+            e.enableIsotope(),
+            e.waveCanvas(),
+            e.scrollSpy()
     },
     isVariableDefined: function (el) {
         return typeof !!el && (el) != 'undefined' && el != null;
@@ -189,7 +189,7 @@ var e = {
         }
     },
     toggleAllClass: function (selectors, className) {
-        if (e.isVariableDefined(selectors)  && (selectors instanceof HTMLElement)) {
+        if (e.isVariableDefined(selectors) && (selectors instanceof HTMLElement)) {
             document.querySelectorAll(selectors).forEach((element) => {
                 element.toggleClass(className);
             });
@@ -216,7 +216,7 @@ var e = {
             var preloader = e.select('.preloader');
             if (e.isVariableDefined(preloader)) {
                 preloader.className += ' animate__animated animate__fadeOut';
-                setTimeout(function(){
+                setTimeout(function () {
                     preloader.style.display = 'none';
                 }, 200);
             }
@@ -233,7 +233,7 @@ var e = {
             if (e.isVariableDefined(element.nextElementSibling) && !element.nextElementSibling.classList.contains("show")) {
                 const parents = e.getParents(element, '.dropdown-menu');
                 e.removeClass(parents.querySelector('.show'), "show");
-                if(e.isVariableDefined(parents.querySelector('.dropdown-opened'))){
+                if (e.isVariableDefined(parents.querySelector('.dropdown-opened'))) {
                     e.removeClass(parents.querySelector('.dropdown-opened'), "dropdown-opened");
                 }
             }
@@ -279,92 +279,92 @@ var e = {
     tinySlider: function () {
         var $carousel = e.select('.tiny-slider-inner');
         if (e.isVariableDefined($carousel)) {
-          var tnsCarousel = e.selectAll('.tiny-slider-inner');
-          tnsCarousel.forEach(slider => {
-              var slider1 = slider;
-              var sliderMode = slider1.getAttribute('data-mode') ? slider1.getAttribute('data-mode') : 'carousel';
-              var sliderAxis = slider1.getAttribute('data-axis') ? slider1.getAttribute('data-axis') : 'horizontal';
-              var sliderSpace = slider1.getAttribute('data-gutter') ? slider1.getAttribute('data-gutter') : 30;
-              var sliderEdge = slider1.getAttribute('data-edge') ? slider1.getAttribute('data-edge') : 0;
+            var tnsCarousel = e.selectAll('.tiny-slider-inner');
+            tnsCarousel.forEach(slider => {
+                var slider1 = slider;
+                var sliderMode = slider1.getAttribute('data-mode') ? slider1.getAttribute('data-mode') : 'carousel';
+                var sliderAxis = slider1.getAttribute('data-axis') ? slider1.getAttribute('data-axis') : 'horizontal';
+                var sliderSpace = slider1.getAttribute('data-gutter') ? slider1.getAttribute('data-gutter') : 30;
+                var sliderEdge = slider1.getAttribute('data-edge') ? slider1.getAttribute('data-edge') : 0;
 
-              var sliderItems = slider1.getAttribute('data-items') ? slider1.getAttribute('data-items') : 4; //option: number (items in all device)
-              var sliderItemsXl = slider1.getAttribute('data-items-xl') ? slider1.getAttribute('data-items-xl') : Number(sliderItems); //option: number (items in 1200 to end )
-              var sliderItemsLg = slider1.getAttribute('data-items-lg') ? slider1.getAttribute('data-items-lg') : Number(sliderItemsXl); //option: number (items in 992 to 1199 )
-              var sliderItemsMd = slider1.getAttribute('data-items-md') ? slider1.getAttribute('data-items-md') : Number(sliderItemsLg); //option: number (items in 768 to 991 )
-              var sliderItemsSm = slider1.getAttribute('data-items-sm') ? slider1.getAttribute('data-items-sm') : Number(sliderItemsMd); //option: number (items in 576 to 767 )
-              var sliderItemsXs = slider1.getAttribute('data-items-xs') ? slider1.getAttribute('data-items-xs') : Number(sliderItemsSm); //option: number (items in start to 575 )
+                var sliderItems = slider1.getAttribute('data-items') ? slider1.getAttribute('data-items') : 4; //option: number (items in all device)
+                var sliderItemsXl = slider1.getAttribute('data-items-xl') ? slider1.getAttribute('data-items-xl') : Number(sliderItems); //option: number (items in 1200 to end )
+                var sliderItemsLg = slider1.getAttribute('data-items-lg') ? slider1.getAttribute('data-items-lg') : Number(sliderItemsXl); //option: number (items in 992 to 1199 )
+                var sliderItemsMd = slider1.getAttribute('data-items-md') ? slider1.getAttribute('data-items-md') : Number(sliderItemsLg); //option: number (items in 768 to 991 )
+                var sliderItemsSm = slider1.getAttribute('data-items-sm') ? slider1.getAttribute('data-items-sm') : Number(sliderItemsMd); //option: number (items in 576 to 767 )
+                var sliderItemsXs = slider1.getAttribute('data-items-xs') ? slider1.getAttribute('data-items-xs') : Number(sliderItemsSm); //option: number (items in start to 575 )
 
-              var sliderSpeed = slider1.getAttribute('data-speed') ? slider1.getAttribute('data-speed') : 500;
-              var sliderautoWidth = slider1.getAttribute('data-autowidth') === 'true'; //option: true or false
-              var sliderArrow = slider1.getAttribute('data-arrow') !== 'false'; //option: true or false
-              var sliderDots = slider1.getAttribute('data-dots') !== 'false'; //option: true or false
+                var sliderSpeed = slider1.getAttribute('data-speed') ? slider1.getAttribute('data-speed') : 500;
+                var sliderautoWidth = slider1.getAttribute('data-autowidth') === 'true'; //option: true or false
+                var sliderArrow = slider1.getAttribute('data-arrow') !== 'false'; //option: true or false
+                var sliderDots = slider1.getAttribute('data-dots') !== 'false'; //option: true or false
 
-              var sliderAutoPlay = slider1.getAttribute('data-autoplay') !== 'false'; //option: true or false
-              var sliderAutoPlayTime = slider1.getAttribute('data-autoplaytime') ? slider1.getAttribute('data-autoplaytime') : 4000;
-              var sliderHoverPause = slider1.getAttribute('data-hoverpause') === 'true'; //option: true or false
-              var sliderLoop = slider1.getAttribute('data-loop') !== 'false'; //option: true or false
-              var sliderRewind = slider1.getAttribute('data-rewind') === 'true'; //option: true or false
-              var sliderAutoHeight = slider1.getAttribute('data-autoheight') === 'true'; //option: true or false
-              var sliderfixedWidth = slider1.getAttribute('data-fixedwidth') === 'true'; //option: true or false
-              var sliderTouch = slider1.getAttribute('data-touch') !== 'false'; //option: true or false
-              var sliderDrag = slider1.getAttribute('data-drag') !== 'false'; //option: true or false
-              // Check if document DIR is RTL
-              var ifRtl = document.getElementsByTagName("html")[0].getAttribute("dir");
-              var sliderDirection;
-              if (ifRtl === 'rtl') {
-                  sliderDirection = 'rtl';
-              }
+                var sliderAutoPlay = slider1.getAttribute('data-autoplay') !== 'false'; //option: true or false
+                var sliderAutoPlayTime = slider1.getAttribute('data-autoplaytime') ? slider1.getAttribute('data-autoplaytime') : 4000;
+                var sliderHoverPause = slider1.getAttribute('data-hoverpause') === 'true'; //option: true or false
+                var sliderLoop = slider1.getAttribute('data-loop') !== 'false'; //option: true or false
+                var sliderRewind = slider1.getAttribute('data-rewind') === 'true'; //option: true or false
+                var sliderAutoHeight = slider1.getAttribute('data-autoheight') === 'true'; //option: true or false
+                var sliderfixedWidth = slider1.getAttribute('data-fixedwidth') === 'true'; //option: true or false
+                var sliderTouch = slider1.getAttribute('data-touch') !== 'false'; //option: true or false
+                var sliderDrag = slider1.getAttribute('data-drag') !== 'false'; //option: true or false
+                // Check if document DIR is RTL
+                var ifRtl = document.getElementsByTagName("html")[0].getAttribute("dir");
+                var sliderDirection;
+                if (ifRtl === 'rtl') {
+                    sliderDirection = 'rtl';
+                }
 
-              var tnsSlider = tns({
-                  container: slider,
-                  mode: sliderMode,
-                  axis: sliderAxis,
-                  gutter: sliderSpace,
-                  edgePadding: sliderEdge,
-                  speed: sliderSpeed,
-                  autoWidth: sliderautoWidth,
-                  controls: sliderArrow,
-                  nav: sliderDots,
-                  autoplay: sliderAutoPlay,
-                  autoplayTimeout: sliderAutoPlayTime,
-                  autoplayHoverPause: sliderHoverPause,
-                  autoplayButton: false,
-                  autoplayButtonOutput: false,
-                  controlsPosition: top,
-                  navPosition: top,
-                  autoplayPosition: top,
-                  controlsText: [
-                      '<i class="fas fa-chevron-left"></i>',
-                      '<i class="fas fa-chevron-right"></i>'
-                  ],
-                  loop: sliderLoop,
-                  rewind: sliderRewind,
-                  autoHeight: sliderAutoHeight,
-                  fixedWidth: sliderfixedWidth,
-                  touch: sliderTouch,
-                  mouseDrag: sliderDrag,
-                  arrowKeys: true,
-                  items: sliderItems,
-                  textDirection: sliderDirection,
-                  responsive: {
-                      0: {
-                          items: Number(sliderItemsXs)
-                      },
-                      576: {
-                          items: Number(sliderItemsSm)
-                      },
-                      768: {
-                          items: Number(sliderItemsMd)
-                      },
-                      992: {
-                          items: Number(sliderItemsLg)
-                      },
-                      1200: {
-                          items: Number(sliderItemsXl)
-                      }
-                  }
-              });
-          }); 
+                var tnsSlider = tns({
+                    container: slider,
+                    mode: sliderMode,
+                    axis: sliderAxis,
+                    gutter: sliderSpace,
+                    edgePadding: sliderEdge,
+                    speed: sliderSpeed,
+                    autoWidth: sliderautoWidth,
+                    controls: sliderArrow,
+                    nav: sliderDots,
+                    autoplay: sliderAutoPlay,
+                    autoplayTimeout: sliderAutoPlayTime,
+                    autoplayHoverPause: sliderHoverPause,
+                    autoplayButton: false,
+                    autoplayButtonOutput: false,
+                    controlsPosition: top,
+                    navPosition: top,
+                    autoplayPosition: top,
+                    controlsText: [
+                        '<i class="fas fa-chevron-left"></i>',
+                        '<i class="fas fa-chevron-right"></i>'
+                    ],
+                    loop: sliderLoop,
+                    rewind: sliderRewind,
+                    autoHeight: sliderAutoHeight,
+                    fixedWidth: sliderfixedWidth,
+                    touch: sliderTouch,
+                    mouseDrag: sliderDrag,
+                    arrowKeys: true,
+                    items: sliderItems,
+                    textDirection: sliderDirection,
+                    responsive: {
+                        0: {
+                            items: Number(sliderItemsXs)
+                        },
+                        576: {
+                            items: Number(sliderItemsSm)
+                        },
+                        768: {
+                            items: Number(sliderItemsMd)
+                        },
+                        992: {
+                            items: Number(sliderItemsLg)
+                        },
+                        1200: {
+                            items: Number(sliderItemsXl)
+                        }
+                    }
+                });
+            });
         }
     },
     // END: Tiny Slider
@@ -406,22 +406,22 @@ var e = {
     formValidation: function () {
         var formV = e.select('.needs-validation');
         if (e.isVariableDefined(formV)) {
-            window.addEventListener('load', function() {
-              // Fetch all the forms we want to apply custom Bootstrap validation styles to
-              var forms = document.querySelectorAll('.needs-validation')
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll('.needs-validation')
 
-              // Loop over them and prevent submission
-              Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                  form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                      event.preventDefault()
-                      event.stopPropagation()
-                    }
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
 
-                    form.classList.add('was-validated')
-                  }, false)
-                })
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
             }, false);
         }
     },
@@ -432,7 +432,7 @@ var e = {
     toolTipFunc: function () {
         var tooltipTriggerList = [].slice.call(e.selectAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-          return new bootstrap.Tooltip(tooltipTriggerEl)
+            return new bootstrap.Tooltip(tooltipTriggerEl)
         })
     },
     // END: Tooltip
@@ -442,7 +442,7 @@ var e = {
     popOverFunc: function () {
         var popoverTriggerList = [].slice.call(e.selectAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-          return new bootstrap.Popover(popoverTriggerEl)
+            return new bootstrap.Popover(popoverTriggerEl)
         })
     },
     // END: Popover
@@ -551,7 +551,7 @@ var e = {
                     menuItems.forEach(menuItem => {
                         menuItem.addEventListener('click', function (event) {
                             var filterValue = menuItem.getAttribute('data-filter');
-                            filter.arrange({filter: filterValue});
+                            filter.arrange({ filter: filterValue });
                             menuItems.forEach((control) => control.removeClass('active'));
                             menuItem.addClass('active');
                         });
@@ -568,15 +568,15 @@ var e = {
 
     // START: 15 wave
     waveCanvas: function () {
-    	var canvas = document.getElementById('waveCanvas')
+        var canvas = document.getElementById('waveCanvas')
         if (e.isVariableDefined(canvas)) {
             var ctx = canvas.getContext('2d')
             canvas.width = canvas.parentNode.offsetWidth
             canvas.height = canvas.parentNode.offsetHeight
-            
+
             let step = 0
             const lines = 4
-        
+
             function loop() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
                 step++
@@ -594,61 +594,61 @@ var e = {
                     ctx.closePath()
                     ctx.fill()
                 }
-        
+
                 requestAnimationFrame(loop)
             }
-		    loop()
+            loop()
         }
     },
     // END: wave
-    
+
 
     // Adicione esta função ao seu objeto 'e'
-scrollSpy: function() {
-    const sections = document.querySelectorAll('section[id]'); // Seleciona todas as seções com ID
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link'); // Seleciona todos os links da navbar
-    
-    if(sections.length && navLinks.length) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5 // 50% do elemento precisa estar visível
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    // Remove a classe 'active' de todos os links
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    
-                    // Encontra o link correspondente e adiciona a classe 'active'
-                    const id = entry.target.getAttribute('id');
-                    const correspondingLink = document.querySelector(`.navbar-nav .nav-link[href="#${id}"]`);
-                    
-                    if(correspondingLink) {
-                        correspondingLink.classList.add('active');
+    scrollSpy: function () {
+        const sections = document.querySelectorAll('section[id]'); // Seleciona todas as seções com ID
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link'); // Seleciona todos os links da navbar
+
+        if (sections.length && navLinks.length) {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5 // 50% do elemento precisa estar visível
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove a classe 'active' de todos os links
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                        });
+
+                        // Encontra o link correspondente e adiciona a classe 'active'
+                        const id = entry.target.getAttribute('id');
+                        const correspondingLink = document.querySelector(`.navbar-nav .nav-link[href="#${id}"]`);
+
+                        if (correspondingLink) {
+                            correspondingLink.classList.add('active');
+                        }
                     }
-                }
+                });
+            }, observerOptions);
+
+            // Observa todas as seções
+            sections.forEach(section => {
+                observer.observe(section);
             });
-        }, observerOptions);
-        
-        // Observa todas as seções
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-        
-        // Para dispositivos móveis com navbar collapse
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if(navbarCollapse.classList.contains('show')) {
-                    navbarCollapse.classList.remove('show');
-                }
+
+            // Para dispositivos móveis com navbar collapse
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                });
             });
-        });
-    }
-},
+        }
+    },
 };
 e.init();
