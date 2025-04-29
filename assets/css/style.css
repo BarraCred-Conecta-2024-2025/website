@@ -549,6 +549,7 @@ progress {
   font-weight: 300;
   line-height: 1.2;
 }
+
 @media (min-width: 1200px) {
   .display-5 {
     font-size: 3rem;
@@ -21566,3 +21567,4 @@ footer .widget {
   backdrop-filter: blur(2px);
   background: rgba(0, 0, 0, 0.5);
 }
+

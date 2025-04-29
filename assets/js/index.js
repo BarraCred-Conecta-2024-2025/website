@@ -1,6 +1,6 @@
     // "assets/images/fotos/bg1.jpeg",
 const images = [
-    "assets/images/bg/banner1.jpg",
+    "assets/images/bg/banner1.jpeg",
     "assets/images/bg/banner2.jpg",
     "assets/images/bg/banner3.jpg",
 ];
